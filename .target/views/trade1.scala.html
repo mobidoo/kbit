@@ -1,0 +1,234 @@
+@(email:String, balance:String)
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> kbitcoin </title>
+<link rel="stylesheet" href="/assets/stylesheets/ui.css" type="text/css" />
+</head>
+
+<body>
+<div id="header">
+	<div class="price_chart">비트코인시세</div>
+	<ul class="price_list">
+		<li>현재<span class="num">000,000,000</span></li>
+		<li>고가<span class="num">000,000,000</span></li>
+		<li>저가<span class="num">000,000,000</span></li>
+		<li>평균가<span class="num">000,000,000</span></li>
+	</ul>
+	<div class="mt_gox">Mt.Gox (해외) 현재<span class="num">000,000,000</span></div>
+	<div class="header">
+		<h1 class="toplogo"><img src="/assets/images/kbitcoin.png" alt="KBitCoin" /></h1>
+		<ul class="nav">
+			<li><a href="#" class="on">계정</a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li><a href="#">시장정보</a></li>
+			<li><a href="#">도움말</a></li>
+		</ul>
+		<div class="userinfo">
+			<a href="#" class="userid">@email ▼</a>
+			<!-- [D] 클릭시열림 -->
+			<div class="usermenu" style="display:block;">
+				<ul class="menu">
+					<li class="menu1"><a href="#">거래</a></li>
+					<li class="menu2"><a href="#">입출금</a></li>
+					<li class="menu3"><a href="#">설정</a></li>
+					<li class="menu4"><a href="/wallet/balance">거래내역</a></li>
+				</ul>
+				<button type="button" class="btn_logout">&gt; Logout</button>
+			</div>
+			<!-- //[D] 클릭시열림 -->
+			<span class="lastlogin">Last login on YY-DD-MM HH:MM:SS</span>
+			<dl class="balance">
+				<dt>잔고</dt>
+				<dd>XBT : <span class="num">000,000,000,000</span></dd>
+				<dd>WON : <span class="num">000,000,000,000</span></dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div id="accountwrap">
+	<!-- 첫번째탭메뉴 -->
+	<div class="tabmenu1">
+		<ul class="menu">
+			<li class="menu1"><a href="#" class="on"><span>거래</span></a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li class="menu2"><a href="#"><span>입출금</span></a></li>
+			<li class="menu3"><a href="#"><span>설정</span></a></li>
+			<li class="menu4"><a href="#"><span>거래내역</span></a></li>
+		</ul>
+		<div class="current_time">
+			<p><span>Current Time : </span>YY-DD-MM HH:MM:SS (+09:00)</p>
+			<p><span>Last Updated : </span>00 Seconds ago</p>
+			<button type="button" class="btn_refresh">새고고침</button>
+		</div>
+	</div>
+	<!-- //첫번째탭메뉴 -->
+	<div class="tradewrap">
+		<!-- 두번째탭메뉴 -->
+		<ul class="tabmenu2">
+			<li><a href="#" class="on">거래개요</a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li><a href="#">비트코인 구매</a></li>
+			<li><a href="#">비트코인 판매</a></li>
+			<li><a href="#">주문내역 확인</a></li>
+		</ul>
+		<!-- //두번째탭메뉴 -->
+		<div class="box1">
+			<h2 class="boxtit">잔고</h2>
+			<div class="datatable">
+				<table>
+					<thead>
+					<tr>
+						<th scope="col">통화</th>
+						<th scope="col">총액</th>
+						<th scope="col">주문 할당</th>
+						<th scope="col">출금/환금 중</th>
+						<th scope="col" class="serviceable">사용가능액</th>
+						<th scope="col">&nbsp;</th>
+					</tr>
+					</thead>
+					<tbody>
+					<!-- [D] tr 홀수번째에 class="odd" -->
+					<tr class="odd">
+						<td class="ac">비트코인</td>
+						<td><strong>@balance</strong> BTC</td>
+						<td>0 BTC</td>
+						<td></td>
+						<td class="serviceable"><strong>@balance</strong> BTC</td>
+						<td class="ac"><a href="/wallet/deposit" class="link1">BTC 입금</a> | <a href="wallet/send" class="link1">BTC 출금</a></td>
+					</tr>
+					<tr>
+						<td class="ac">KRW</td>
+						<td><strong>4,700</strong> KRW</td>
+						<td>0 KRW</td>
+						<td></td>
+						<td class="serviceable"><strong>4,700</strong> KRW</td>
+						<td class="ac"><a href="#" class="link1">KRW 충전</a> | <a href="#" class="link1">KRW 환급</a></td>
+					</tr>
+					<tr class="odd">
+						<td class="ac">총 자산</td>
+						<td><strong>9,824,510</strong> KRW (현재가 기준)</td>
+						<td></td>
+						<td></td>
+						<td class="serviceable"></td>
+						<td class="ac"></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="box1">
+			<h2 class="boxtit">거래내역</h2>
+			<div class="datatable">
+				<table class="ac">
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col style="width:12%;" />
+					<col />
+					<thead>
+					<tr>
+						<th scope="col" rowspan="2">
+							<div class="btn_ctrl">
+								거래ID
+								<button type="button" class="btn_up">▲</button>
+								<button type="button" class="btn_down">▼</button>
+							</div>
+						</th>
+						<th scope="col" rowspan="2">
+							<div class="btn_ctrl">
+								날짜
+								<button type="button" class="btn_up">▲</button>
+								<button type="button" class="btn_down">▼</button>
+							</div>
+						</th>
+						<th scope="col" rowspan="2">
+							<div class="btn_ctrl">
+								거래유형
+								<button type="button" class="btn_up">▲</button>
+								<button type="button" class="btn_down">▼</button>
+							</div>
+						</th>
+						<th scope="col" colspan="2">BTC</th>
+						<th scope="col" colspan="2">KRW</th>
+						<th scope="col" rowspan="2">평균 체결가<br />(KRW/BTC)</th>
+					</tr>
+					<tr>
+						<th scope="col">변동</th>
+						<th scope="col">잔액</th>
+						<th scope="col">변동</th>
+						<th scope="col">잔액</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="odd">
+						<td>13234</td>
+						<td class="al">2013.11.28<br />15:10:01</td>
+						<td class="al">BTC 구매</td>
+						<td>+7.5537</td>
+						<td><strong>7.5537</strong></td>
+						<td>-9,995,300</td>
+						<td><strong>4700</strong></td>
+						<td>1,310,000</td>
+					</tr>
+					<tr>
+						<td>13234</td>
+						<td class="al">2013.11.28<br />15:10:01</td>
+						<td class="al">BTC 구매</td>
+						<td>+7.5537</td>
+						<td><strong>7.5537</strong></td>
+						<td>-9,995,300</td>
+						<td><strong>4700</strong></td>
+						<td>1,310,000</td>
+					</tr>
+					<tr class="odd">
+						<td>13234</td>
+						<td class="al">2013.11.28<br />15:10:01</td>
+						<td class="al">BTC 구매</td>
+						<td>+7.5537</td>
+						<td><strong>7.5537</strong></td>
+						<td>-9,995,300</td>
+						<td><strong>4700</strong></td>
+						<td>1,310,000</td>
+					</tr>
+					<tr>
+						<td>13234</td>
+						<td class="al">2013.11.28<br />15:10:01</td>
+						<td class="al">BTC 구매</td>
+						<td>+7.5537</td>
+						<td><strong>7.5537</strong></td>
+						<td>-9,995,300</td>
+						<td><strong>4700</strong></td>
+						<td>1,310,000</td>
+					</tr>
+					<tr class="odd">
+						<td>13234</td>
+						<td class="al">2013.11.28<br />15:10:01</td>
+						<td class="al">BTC 구매</td>
+						<td>+7.5537</td>
+						<td><strong>7.5537</strong></td>
+						<td>-9,995,300</td>
+						<td><strong>4700</strong></td>
+						<td>1,310,000</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div class="footer">
+		<ul class="quicklinks">
+			<li><a href="#">이용약관</a>|</li>
+			<li><a href="#">개인정보 취급방침</a>|</li>
+			<li><a href="#">수수료</a>|</li>
+			<li><a href="#">고객지원</a>|</li>
+			<li><a href="#">KBitCoin소개</a></li>
+		</ul>
+		<p class="address">대표이사 : 홍길동  |  사업자 등록번호 000-00-00000<br />주소 : 서울시 구로구 구로동 000-00</p>
+		<img src="/assets/images/mobidoo.png" alt="" class="footlogo" />
+	</div>
+</div>
+</body>
+</html>

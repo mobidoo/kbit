@@ -1,0 +1,105 @@
+@* bank3 Template File *@
+@(email:String, newAddr:String)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> kbitcoin </title>
+<link rel="stylesheet" href="/assets/stylesheets/ui.css" type="text/css" />
+</head>
+
+<body>
+<div id="header">
+	<div class="price_chart">비트코인시세</div>
+	<ul class="price_list">
+		<li>현재<span class="num">000,000,000</span></li>
+		<li>고가<span class="num"> 000,000,000</span></li>
+		<li>저가<span class="num"> 000,000,000</span></li>
+		<li>평균가<span class="num">000,000,000</span></li>
+	</ul>
+	<div class="mt_gox">Mt.Gox (해외) 현재<span class="num">000,000,000</span></div>
+	<div class="header">
+		<h1 class="toplogo"><img src="/assets/images/kbitcoin.png" alt="KBitCoin" /></h1>
+		<ul class="nav">
+			<li><a href="#" class="on">계정</a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li><a href="#">시장정보</a></li>
+			<li><a href="#">도움말</a></li>
+		</ul>
+		<div class="userinfo">
+			<a href="#" class="userid">@email ▼</a>
+			<!-- [D] 클릭시열림 -->
+			<div class="usermenu" style="display:none;">
+				<ul class="menu">
+					<li class="menu1"><a href="#">거래</a></li>
+					<li class="menu2"><a href="#">입출금</a></li>
+					<li class="menu3"><a href="#">설정</a></li>
+					<li class="menu4"><a href="#">거래내역</a></li>
+				</ul>
+				<button type="button" class="btn_logout">&gt; Logout</button>
+			</div>
+			<!-- //[D] 클릭시열림 -->
+			<span class="lastlogin">Last login on YY-DD-MM HH:MM:SS</span>
+			<dl class="balance">
+				<dt>잔고</dt>
+				<dd>XBT : <span class="num">000,000,000,000</span></dd>
+				<dd>WON : <span class="num">000,000,000,000</span></dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div id="accountwrap">
+	<!-- 첫번째탭메뉴 -->
+	<div class="tabmenu1">
+		<ul class="menu">
+			<li class="menu1"><a href="#"><span>거래</span></a></li>
+			<li class="menu2"><a href="#" class="on"><span>입출금</span></a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li class="menu3"><a href="#"><span>설정</span></a></li>
+			<li class="menu4"><a href="#"><span>거래내역</span></a></li>
+		</ul>
+		<div class="current_time">
+			<p><span>Current Time : </span>YY-DD-MM HH:MM:SS (+09:00)</p>
+			<p><span>Last Updated : </span>00 Seconds ago</p>
+			<button type="button" class="btn_refresh">새고고침</button>
+		</div>
+	</div>
+	<!-- //첫번째탭메뉴 -->
+	<div class="tradewrap">
+		<!-- 두번째탭메뉴 -->
+		<ul class="tabmenu2">
+			<li><a href="#">KRW 충전</a></li>
+			<li><a href="#">KRW 환급</a></li>
+			<li><a href="#" class="on">비트코인 입금</a></li><!-- [D] 현재페이지일때 class="on" -->
+			<li><a href="#">비트코인 출금</a></li>
+		</ul>
+		<!-- //두번째탭메뉴 -->
+		<div class="bank_statement">
+			<div class="information">
+				<p>Kbitcoin에 비트코인을 보관 및 판매를 위해서는 아래 주소로 보유하신 비트코인을 입금해야 합니다.</p>
+				<ul>
+					<li>- 입금 반영 시간 : 1시간 이내 자동 반영</li>
+				</ul>
+				<p class="txt3">※1시간 이내 미반영 시 <a href=@{"info@kbitcoin.co.kr"}r>@{"info@kbitcoin.co.kr"}</a>로 문의 바랍니다.</p>
+			</div>
+			<div class="receipts_account">
+				<p><em>비트코인 입금주소</em><br />다음 입금주소로 비트코인을 입금하여 주시기 바랍니다.</p>
+				<strong>@newAddr</strong>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div class="footer">
+		<ul class="quicklinks">
+			<li><a href="#">이용약관</a>|</li>
+			<li><a href="#">개인정보 취급방침</a>|</li>
+			<li><a href="#">수수료</a>|</li>
+			<li><a href="#">고객지원</a>|</li>
+			<li><a href="#">KBitCoin소개</a></li>
+		</ul>
+		<p class="address">대표이사 : 홍길동  |  사업자 등록번호 000-00-00000<br />주소 : 서울시 구로구 구로동 000-00</p>
+		<img src="/assets/images/mobidoo.png" alt="" class="footlogo" />
+	</div>
+</div>
+</body>
+</html>

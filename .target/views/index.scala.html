@@ -1,0 +1,119 @@
+@(loginForm:Form[(String,String)], email:Option[String]=None)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> kbitcoin </title>
+<link rel="stylesheet" href="/assets/stylesheets/ui.css" type="text/css" />
+</head>
+
+<body id="main">
+<div id="header">
+	<div class="price_chart">비트코인시세</div>
+	<ul class="price_list">
+		<li>현재<span class="num">000,000,000</span></li>
+		<li>고가<span class="num">000,000,000</span></li>
+		<li>저가<span class="num">000,000,000</span></li>
+		<li>평균가<span class="num">000,000,000</span></li>
+	</ul>
+	<div class="mt_gox">Mt.Gox (해외) 현재<span class="num">000,000,000</span></div>
+	<div class="header">
+		<h1 class="toplogo"><img src="/assets/images/kbitcoin.png" alt="KBitCoin" /></h1>
+		<ul class="nav">
+			<li><a href="#">소개</a></li>
+			<li><a href="#">시장정보</a></li>
+			<li><a href="#">도움말</a></li>
+		</ul>
+	</div>
+</div>
+<div id="mainwrap">
+	<div class="section1">
+		<!-- 로그인 -->
+		<div class="article1">
+			<h2>로그인</h2>
+			
+			<fieldset>
+				@if(loginForm.globalError.isDefined) {
+					@helper.form(routes.Application.autheticate){
+					@helper.inputText(loginForm("Email"), 'class->"intext")
+					@helper.inputPassword(loginForm("Password"), 'class->"intext")
+					<p class="findpw"><a href="#">Forgot your password?</a></p>
+					<input type="submit" class="btn_signin" value="Sign in" />
+					<a href="/signup" class="btn_registrer">Registrer</a>
+					}
+				} else {
+				  @if(email.isDefined) {
+				  	<p class="success"> login</p>
+				  } else {
+				  	@helper.form(routes.Application.autheticate){
+					@helper.inputText(loginForm("Email"), 'class->"intext")
+					@helper.inputPassword(loginForm("Password"), 'class->"intext")
+					<p class="findpw"><a href="#">Forgot your password?</a></p>
+					<input type="submit" class="btn_signin" value="Sign in" />
+					<a href="/signup" class="btn_registrer">Registrer</a>					
+				  	}	
+				  }
+				}
+			</fieldset>
+		</div>
+		<!-- //로그인 -->
+		<!-- 시장현황 -->
+		<div class="article2">
+			<h2>시장현황</h2>
+			<div class="chart">
+				차트영역은 255x197 사이즈로 잡아두었습니다.
+			</div>
+		</div>
+		<!-- //시장현황 -->
+		<!-- 최신뉴스 공지사항 -->
+		<div class="article3">
+			<div class="news">
+				<h2>최신뉴스</h2>
+				<ul class="newslist">
+					<li><a href="#"><span class="date">2013-00-00</span>As Chinese Investors Pile Into Bitcoin, China`s Olderst Exchange, BTC China, Raises $5M From Lightspeed TechCrunch<em class="new">NEW</em></a></li>
+					<li><a href="#"><span class="date">2013-00-00</span>Bitcoin hits $750, up 107% in a week CNBC</a></li>
+				</ul>
+				<a href="#" class="moreview">More</a>
+			</div>
+			<div class="notice">
+				<h2>공지사항</h2>
+				<ul class="noticelist">
+					<li><a href="#"><span class="date">2013-00-00</span>공지사항<em class="new">NEW</em></a></li>
+					<li><a href="#"><span class="date">2013-00-00</span>공지사항공지사항공지사항공지사항공지사항<em class="new">NEW</em></a></li>
+				</ul>
+				<a href="#" class="moreview">More</a>
+			</div>
+		</div>
+		<!-- //최신뉴스 공지사항 -->
+	</div>
+	<div class="section2">
+		<dl class="article4">
+			<dt>무엇무엇을 통한 안전성</dt>
+			<dd>KBitCoin은 .....로 관리하여 최상의 보안 수준을 유지하고 있습니다.</dd>
+		</dl>
+		<dl class="article5">
+			<dt>24시간 실시간 거래 및 1시간 이내 입금</dt>
+			<dd>Kbitcoin은 24시간 실시간 거래시스템을 제공 하며, 1시간이내 KRW 입금처리를(평일 기준) 통해 보다 편리한 비트코인 거래 서비스를 제공하고 있습니다.</dd>
+		</dl>
+		<dl class="article6">
+			<dt>Bitcoin foundation 정회원</dt>
+			<dd>Kbitcoin은 국내 비트코인 거래소 최초로 Bitcoin foundation의 멤버가 되었습니다. 보다 공 신력 있는 비트코인 거래소로써 고객 여러분께 최상의 서비스를 제공해 드릴 것입니다.</dd>
+		</dl>
+	</div>
+</div>
+<div id="footer">
+	<div class="footer">
+		<ul class="quicklinks">
+			<li><a href="#">이용약관</a>|</li>
+			<li><a href="#">개인정보 취급방침</a>|</li>
+			<li><a href="#">수수료</a>|</li>
+			<li><a href="#">고객지원</a>|</li>
+			<li><a href="#">KBitCoin소개</a></li>
+		</ul>
+		<p class="address">대표이사 : 홍길동  |  사업자 등록번호 000-00-00000<br />주소 : 서울시 구로구 구로동 000-00</p>
+		<img src="/assets/images/mobidoo.png" alt="" class="footlogo" />
+	</div>
+</div>
+</body>
+</html>

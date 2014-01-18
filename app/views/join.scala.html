@@ -1,0 +1,129 @@
+@(signUpForm : Form[User], message :String)
+
+@import MyHelpers._
+@import helper._
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> kbitcoin </title>
+<link rel="stylesheet" href="/assets/stylesheets/ui.css" type="text/css" />
+<script type="text/javascript" src="/assets/javascripts/jquery-1.9.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#sub').click(function(){
+		alert("click");
+		var $checked = $('input[name="agree"]:checkbox')[0].checked;
+		if ($checked == false) {
+			alert("체크박스를 클릭하세요");
+			return false
+		} else {
+			var $email  = $('input[name=email]').val();
+			var $email2 = $('input[name=email2]').val();
+			if ($email != $email2) {
+				alert("메일이 동일하지 않습니다");
+				return false;
+			}
+			
+			var $password = $('input[name=password]').val();
+			var $password2 = $('input[name=password2]').val();
+			alert($password);
+			if ($password != $password2) {
+				alert("암호가 동일하지 않습니다");
+				return false;
+			}
+		}
+	});
+	
+	$('#reset').click(function(){   
+		$('input[name="name"]').val('');
+		$('input[name="phone"]').val('');
+		$('input[name="birth"]').val('');
+		$('input[name="gender"]').val('');
+		$('input[name="email"]').val('');
+		$('input[name="email2"]').val('');
+		$('input[name="pw"]').val('');
+		$('input[name="pw2"]').val('');
+	}
+	);
+	   
+});
+</script>
+</head>
+
+<body id="main">
+<div id="header">
+	<div class="price_chart">비트코인시세</div>
+	<ul class="price_list">
+		<li>현재<span class="num">000,000,000</span></li>
+		<li>고가<span class="num">000,000,000</span></li>
+		<li>저가<span class="num">000,000,000</span></li>
+		<li>평균가<span class="num">000,000,000</span></li>
+	</ul>
+	<div class="mt_gox">Mt.Gox (해외) 현재<span class="num">000,000,000</span></div>
+	<div class="header">
+		<h1 class="toplogo"><img src="/assets/images/kbitcoin.png" alt="KBitCoin" /></h1>
+		<ul class="nav">
+			<li><a href="#">소개</a></li>
+			<li><a href="#">시장정보</a></li>
+			<li><a href="#">도움말</a></li>
+		</ul>
+	</div>
+</div>
+<div id="mainwrap">
+	<div class="joinwrap">
+		<h2>회원가입</h2>
+		@helper.form(action = routes.Application.signUpAction){
+		
+		<fieldset>
+			<ul class="inputfield">
+				<li><label>성명</label>
+				@input(signUpForm("name")) { (id, name, value, args) =>
+					<input type="text" name="@name" id="@id" class="intext">	
+				}</li>
+				
+				<li><label for="join_phone">휴대폰번호</label>
+				@inputText(signUpForm("phone"), 'class -> "intext")</li>
+				</li>
+				
+				<li><label for="join_birth">생년월일</label>
+				@inputText(signUpForm("birth_day"), 'class -> "intext")</li>
+				<li><label for="join_sex">성별</label>
+				@inputText(signUpForm("gender"), 'class -> "intext")</li>
+				<li><label for="join_email">이메일</label>
+				@inputText(signUpForm("email"), 'class -> "intext")
+				</li>
+				<li>
+				<label for="join_email2">이메일 재입력</label>
+				<input type="text" name="email2" id="email2" class="intext" /></li>
+				<li><label for="password">비밀번호</label>
+				@inputPassword(signUpForm("password"), 'class -> "intext")</li>
+				<li><label for="join_pw2">비밀번호 재입력</label>
+				<input type="password" name="password2" id="password2" class="intext" /></li>
+			</ul>
+			<p class="agreement">
+				<input type="checkbox" name="agree" id="agree_checkbox" />
+				<label for="agree"><strong>이용약관</strong>과 <strong>개인정보 취급방침</strong>을 읽었고 동의합니다.</label>
+			</p>
+			<input id="sub" type="submit" class="btn_join" value="회원가입" />
+			<input id="reset" type="button" class="btn_cancel" value="취소" />
+		
+		</fieldset>
+		}
+	</div>
+</div>
+<div id="footer">
+	<div class="footer">
+		<ul class="quicklinks">
+			<li><a href="#">이용약관</a>|</li>
+			<li><a href="#">개인정보 취급방침</a>|</li>
+			<li><a href="#">수수료</a>|</li>
+			<li><a href="#">고객지원</a>|</li>
+			<li><a href="#">KBitCoin소개</a></li>
+		</ul>
+		<p class="address">대표이사 : 홍길동  |  사업자 등록번호 000-00-00000<br />주소 : 서울시 구로구 구로동 000-00</p>
+		<img src="/assets/images/mobidoo.png" alt="" class="footlogo" />
+	</div>
+</div>
+</body>
+</html>

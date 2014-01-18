@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+POST    /login						controllers.Application.autheticate
+GET     /logout						controllers.Application.logout
+
+GET     /signup						controllers.Application.signUp
+GET     /signup_act					controllers.Application.signUpAction
+
+GET		/wallet/deposit    			controllers.WalletController.deposit
+GET     /wallet/balance             controllers.WalletController.balance
+#GET 	/create_wallet				controllers.WalletController.create(userId)
+#GET 	/refresh_wallet				controllers.WalletController.refresh(userId)
+
+GET  	/isEmailExist/:email        controllers.Application.isEmailExist(email: String)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Javascript routing
+GET 	/javascriptRoutes    		controllers.Application.javascriptRoutes
